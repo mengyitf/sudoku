@@ -77,6 +77,11 @@ void value_exchange(int i,int c){
 		}
 	}
 }
+void exchange_first(){
+	int i = sudoku[0][0];
+	int c = 3;		//交换因子
+	value_exchange(i, c);
+}
 void print_into_txt(){
 	int i,j;
 	for (i = 0; i < 9; ++i){
@@ -101,6 +106,7 @@ void loop_build(int times){
 				++i;
 			}
 		}
+		exchange_first();
 		print_into_txt();
 	}
 	printf("%d random Sudoku numbers have been generated in the file \"sudoku.txt\"\n", times);
