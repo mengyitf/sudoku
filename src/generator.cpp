@@ -95,14 +95,16 @@ void print_into_txt(){
 void col_exchange(){
 	int i,j,u,t,c;
 	c = rand() % 3 + 1;
-	for (i = 0*c; i < 3*c; ++i){
+	for (i = 3*(c-1); i < 3*c; ++i){
 		u = (rand() % 2 + 1) * 3;
 		for (j = 0; j < 9; ++j){
 			t = sudoku[i][j];
 			sudoku[i][j] = sudoku[(i + u) % 9][j];
 			sudoku[(i + u) % 9][j] = t;
+			printf("%d %d\n", i,(i + u) % 9);
 		}
 	}
+	printf("\n");
 
 }
 void loop_build(int times){
@@ -114,7 +116,7 @@ void loop_build(int times){
 			c = rand() % 9 + 1;		//交换因子
 			if((k>>(c-1))%2>0){
 				value_exchange(i, c);
-				row_exchange(i, u);
+				// row_exchange(i, u);
 				k = k - (1<<(c-1));
 				++i;
 			}
