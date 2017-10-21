@@ -79,18 +79,30 @@ void value_exchange(int i,int c){
 }
 void exchange_first(){
 	int i = sudoku[0][0];
-	int c = 3;		//交换因子
+	int c = 7;		//交换因子
 	value_exchange(i, c);
 }
 void print_into_txt(){
 	int i,j;
 	for (i = 0; i < 9; ++i){
 		for (j = 0; j < 9; ++j){
-			fprintf(file,"%d ", sudoku[i][j]);
+			if (j == 0) fprintf(file,"%d", sudoku[i][j]);
+			else fprintf(file," %d", sudoku[i][j]);
 		}
-		fprintf(file,"\n");
+		if (i < 8) fprintf(file,"\n");
 	}
-	fprintf(file,"\n");
+}
+void col_exchange(){
+	int i,j,u,t;
+	for (i = 1; i < 9; ++i){
+		u = (rand() % 2 + 1) * 3;
+		for (j = 0; j < 9; ++j){
+			t = sudoku[i][j];
+			sudoku[i][j] = sudoku[(i + u) % 9][j];
+			sudoku[(i + u) % 9][j] = t;
+		}
+	}
+
 }
 void loop_build(int times){
 	int y,k,u,c,i;
@@ -106,7 +118,9 @@ void loop_build(int times){
 				++i;
 			}
 		}
+		col_exchange();
 		exchange_first();
+		if (y > 0) fprintf(file,"\n\n");
 		print_into_txt();
 	}
 	printf("%d random Sudoku numbers have been generated in the file \"sudoku.txt\"\n", times);
