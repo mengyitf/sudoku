@@ -104,7 +104,7 @@ void col_exchange(){
 			// printf("%d %d\n", i,(i + u) % 9);
 		}
 	}
-	printf("\n");
+	// printf("\n");
 
 }
 void loop_build(int times){
