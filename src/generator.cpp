@@ -94,10 +94,10 @@ void print_into_txt(){
 }
 void col_exchange(){
 	int i,j,u,t,c;
-	for (i = 1; i < 9; ++i){
+	c = rand() % 3 + 1;
+	for (i = 0*c; i < 3*c; ++i){
 		u = (rand() % 2 + 1) * 3;
-		c = rand() % 3 + 1;
-		for (j = 0*c; j < 3 * c; ++j){
+		for (j = 0; j < 9; ++j){
 			t = sudoku[i][j];
 			sudoku[i][j] = sudoku[(i + u) % 9][j];
 			sudoku[(i + u) % 9][j] = t;
