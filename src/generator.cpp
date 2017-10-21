@@ -118,7 +118,7 @@ void loop_build(int times){
 				++i;
 			}
 		}
-		col_exchange();
+		// col_exchange();
 		exchange_first();
 		if (y > 0) fprintf(file,"\n\n");
 		print_into_txt();
