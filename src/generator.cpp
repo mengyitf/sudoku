@@ -96,7 +96,7 @@ void col_exchange(){
 	int i,j,u,t;
 	for (i = 1; i < 9; ++i){
 		u = (rand() % 2 + 1) * 3;
-		for (j = 0; j < 9; ++j){
+		for (j = 0; j < 3; ++j){
 			t = sudoku[i][j];
 			sudoku[i][j] = sudoku[(i + u) % 9][j];
 			sudoku[(i + u) % 9][j] = t;
@@ -118,7 +118,7 @@ void loop_build(int times){
 				++i;
 			}
 		}
-		// col_exchange();
+		col_exchange();
 		exchange_first();
 		if (y > 0) fprintf(file,"\n\n");
 		print_into_txt();
