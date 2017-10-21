@@ -101,7 +101,7 @@ void col_exchange(){
 			t = sudoku[i][j];
 			sudoku[i][j] = sudoku[(i + u) % 9][j];
 			sudoku[(i + u) % 9][j] = t;
-			printf("%d %d\n", i,(i + u) % 9);
+			// printf("%d %d\n", i,(i + u) % 9);
 		}
 	}
 	printf("\n");
